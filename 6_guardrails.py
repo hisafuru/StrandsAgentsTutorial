@@ -7,10 +7,11 @@ import os
 load_dotenv()
 
 bedrock_model = BedrockModel(
-    model_id="anthropic.claude-3-5-haiku-20241022-v1:0",
+    model_id="global.anthropic.claude-sonnet-4-5-20250929-v1:0",
     guardrail_id=os.getenv("BEDROCK_GUARDRAIL_ID"),
     guardrail_version="1",
     guardrail_trace="enabled",
+    guardrail_latest_message=True
 )
 
 agent = Agent(model=bedrock_model, callback_handler=None)
