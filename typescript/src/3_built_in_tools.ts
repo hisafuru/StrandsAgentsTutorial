@@ -28,13 +28,21 @@ const currentTime = tool({
 // カスタムツール: 計算機
 const calculator = tool({
   name: "calculator",
-  description: "数式を計算する。",
+  description: "四則演算を行う。2つの数値と演算子を指定する。",
   inputSchema: z.object({
-    expression: z.string().describe("計算する数式"),
+    a: z.number().describe("1つ目の数値"),
+    b: z.number().describe("2つ目の数値"),
+    operator: z.enum(["+", "-", "*", "/"]).describe("演算子"),
   }),
   callback: (input) => {
-    const result = Function(`"use strict"; return (${input.expression})`)();
-    return String(result);
+    const { a, b, operator } = input;
+    const ops: Record<string, (a: number, b: number) => number> = {
+      "+": (a, b) => a + b,
+      "-": (a, b) => a - b,
+      "*": (a, b) => a * b,
+      "/": (a, b) => a / b,
+    };
+    return String(ops[operator](a, b));
   },
 });
 
