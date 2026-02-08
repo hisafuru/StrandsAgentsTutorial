@@ -1,0 +1,29 @@
+{
+  "name": "strands-agents-tutorial-typescript",
+  "version": "1.0.0",
+  "description": "Strands Agents Tutorial - TypeScript版",
+  "type": "module",
+  "scripts": {
+    "1": "npx tsx src/1_simple_agent.ts",
+    "2": "npx tsx src/2_various_models.ts",
+    "3": "npx tsx src/3_built_in_tools.ts",
+    "6": "npx tsx src/6_observability.ts",
+    "build": "tsc",
+    "4": "npx tsx src/4_multi_agent_tool.ts",
+    "5-1": "npx tsx src/5_1_conversation_sliding_window.ts",
+    "5-2": "npx tsx src/5_2_streaming.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0",
+    "@google/genai": "^1.40.0",
+    "@strands-agents/sdk": "^0.2.1",
+    "dotenv": "^16.4.7",
+    "openai": "^6.7.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
